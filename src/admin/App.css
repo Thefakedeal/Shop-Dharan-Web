@@ -1,0 +1,37 @@
+
+.red-text {
+  color: #ff2d2d;
+}
+
+.white-text-bold {
+  color: #f2f2f2;
+  text-decoration: solid;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.white-text-bold:hover {
+  transform: scale(1.1);
+}
+
+
+.text-input {
+  background-color: #f2f2f2;
+  border-color: #ff2d2d;
+  margin: 1rem;
+}
+
+.logo {
+  width: 80vmin;
+  padding: 5%;
+  object-fit: contain;
+}
+
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 80%;
+  flex-wrap: wrap;
+}
