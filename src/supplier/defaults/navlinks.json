@@ -1,0 +1,5 @@
+{
+    "About Me": "/supplier/me",
+    "Products" : "/supplier/products",
+    "Orders": "/supplier/orders"
+}

@@ -34,7 +34,7 @@ export default function DisplayOrders() {
 
   useEffect(() => {
     setPage(0);
-  }, [orderStatus]);
+  }, [orderStatus,showOldest]);
 
   const DisplayOrderTabs = ()=>{
     if(orderloading) return <DisplayLoading loading={orderloading} />
