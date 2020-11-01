@@ -8,16 +8,12 @@ const useStyles = makeStyles({
         flexDirection: "column",
         backgroundColor: COLORS.PRIMARY_WHITE,
         flex: 1,
-        marginLeft: "auto",
-        marginRight: "auto",
-        overflowY: "auto",
-        // alignItems: "center",
-        maxWidth: 800,
-        overflowX: "hidden",
-        minHeight: "100vh",
+        alignItems: "center",
+        height: "100vh",
+        width: "100vw",
     }
 }) 
-export default function LightScreen({children}) {
+export default function AppCover({children}) {
     const styles = useStyles()
     return (
         <div className={styles.fullscreen}> 

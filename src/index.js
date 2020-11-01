@@ -20,6 +20,7 @@ const theme = createMuiTheme({
       main: COLORS.PRIMARY_DARK,
     },
   },
+  
 });
 
 ReactDOM.render(

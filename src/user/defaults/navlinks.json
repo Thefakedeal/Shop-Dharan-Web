@@ -1,0 +1,7 @@
+{
+    "Home": "/home",
+    "Search": "/search",
+    "Cart": "/cart",
+    "Orders":"/orders",
+    "User": "/user"
+}
