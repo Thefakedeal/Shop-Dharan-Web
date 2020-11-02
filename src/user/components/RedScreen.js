@@ -10,7 +10,9 @@ const useStyles = makeStyles({
         flex: 1,
         alignItems: "center",
         justifyContent: "center",
+        height: "100%",
         minHeight: "100vh",
+
     }
 })
 export default function RedScreen({children}) {

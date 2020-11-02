@@ -7,10 +7,12 @@ import {
   useRole,
   useContinueWithoutLogin,
 } from "./contexts/LoginInfo";
+import { Cart } from "./contexts/Cart";
 import { Settings } from "./contexts/Settings";
 import ROLES from "../defaults/roles.json";
 import LoginScreen from "./screens/LoginScreen";
-import Main from './navigation/Main'
+import Main from "./navigation/Main";
+import { Card } from "@material-ui/core";
 
 function Wrapper() {
   const loading = useLoading();
@@ -19,7 +21,7 @@ function Wrapper() {
   const { continueWithoutLogin } = useContinueWithoutLogin();
   if (loading) return <LoadingScreen />;
   if ((isLoggedIn && role === ROLES.USER) || continueWithoutLogin)
-    return <Main />
+    return <Main />;
   return <LoginScreen />;
 }
 
@@ -27,7 +29,9 @@ function App() {
   return (
     <Settings>
       <LoginInfo>
-        <Wrapper />
+        <Cart>
+          <Wrapper />
+        </Cart>
       </LoginInfo>
     </Settings>
   );

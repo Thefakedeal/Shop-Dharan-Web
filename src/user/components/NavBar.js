@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React , {useState, useEffect} from "react";
 import {useHistory} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core'
 import {ArrowBack, Menu} from '@material-ui/icons'
@@ -30,6 +30,12 @@ export default function Navigation({ title="Shop Dharan" }) {
     const toggleOpen  = ()=>{
       setOpen(open=> !open)
     }
+    useEffect(() => {
+      document.title = title
+      return ()=>{
+        document.title = "Shop Dharan"
+      }
+    }, [title])
     return (
     <nav className={styles.nav}>
      <ArrowBack  color="secondary" fontSize="large" onClick={history.goBack}/>

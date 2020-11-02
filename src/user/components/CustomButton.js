@@ -15,7 +15,9 @@ export default function CustomButton({ children, onClick, ...props }) {
       onClick={onClick}
       {...props}
     >
+      <b>
       {children}
+      </b>
     </Button>
   );
 }
