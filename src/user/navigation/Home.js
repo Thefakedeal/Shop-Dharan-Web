@@ -5,6 +5,7 @@ import NAVLINKS from "../defaults/navlinks.json";
 
 import HomeScreen from "../screens/HomeScreen";
 import SupplierScreen from '../screens/SupplierScreen'
+import SearchScreen from '../screens/SearchScreen'
 import NavScreen from '../screens/NavScreen';
 import ProductScreen from '../screens/ProductScreen'
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
           <Switch>
             <Route exact path={'/'} component={NavScreen} />
             <Route exact path={NAVLINKS.Home} component={HomeScreen} />
+            <Route exact path={NAVLINKS.Search} component={SearchScreen}/>
             <Route exact path={`/suppliers/:id`} component={SupplierScreen} />
             <Route exact path={`/products/:id`} component={ProductScreen} />
           </Switch>

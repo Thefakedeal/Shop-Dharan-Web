@@ -1,6 +1,6 @@
 import React from 'react'
 import COLORS from '../defaults/colors.json'
-import {makeStyles} from '@material-ui/core'
+import {makeStyles, Paper} from '@material-ui/core'
 
 const useStyles = makeStyles({
     fullscreen:{
@@ -20,8 +20,8 @@ const useStyles = makeStyles({
 export default function LightScreen({children}) {
     const styles = useStyles()
     return (
-        <div className={styles.fullscreen}> 
+        <Paper className={styles.fullscreen}> 
              {children}
-        </div>
+        </Paper>
     )
 }

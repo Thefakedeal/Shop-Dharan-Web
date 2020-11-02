@@ -12,7 +12,9 @@ import {useSettings, ACTIONS} from '../contexts/Settings'
 export default function HomeScreen() {
   const { loading, err, result = [] } = useFetchCatagories();
   const {settings, dispatch} = useSettings()
-  if (loading) return <Loading loading={loading} />;
+  if (loading) return (<Loading loading={loading} 
+  style={{ marginLeft: "auto", marginRight: "auto" }}
+  />);
   if (err) return <Errors errors={[err]} />;
   return (
     <LightScreen>
