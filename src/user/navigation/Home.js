@@ -10,6 +10,7 @@ import NavScreen from '../screens/NavScreen';
 import ProductScreen from '../screens/ProductScreen'
 import CartScreen from '../screens/CartScreen'
 import CartProductScreen from '../screens/CartProductScreen'
+import AddOrderScreen from "../screens/AddOrderScreen";
 export default function Home() {
   return (
 
@@ -19,6 +20,7 @@ export default function Home() {
             <Route exact path={NAVLINKS.Home} component={HomeScreen} />
             <Route exact path={NAVLINKS.Search} component={SearchScreen}/>
             <Route exact path={NAVLINKS.Cart} component={CartScreen}/>
+            <Route exact path={`${NAVLINKS.Cart}/order`} component={AddOrderScreen}/>
             <Route exact path={`${NAVLINKS.Cart}/:id`} component={CartProductScreen}/>
             <Route exact path={`/suppliers/:id`} component={SupplierScreen} />
             <Route exact path={`/products/:id`} component={ProductScreen} />

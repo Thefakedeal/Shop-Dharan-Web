@@ -1,12 +1,15 @@
 import React from 'react'
+import {useHistory} from 'react-router-dom'
 import LightScreen from '../components/LightScreen'
 import NavBar from '../components/NavBar'
 import CenterPaper from '../components/CenterPaper'
 import DisplayCartOrder from '../section/DisplayCartOrder'
 import {useCart} from '../contexts/Cart'
 import CustomButton from '../components/CustomButton'
+import NAVLINKS from '../defaults/navlinks.json'
 
 export default function CartScreen() {
+    const history = useHistory()
     const {cart,clearCart} = useCart()
     return (
         <LightScreen>
@@ -23,7 +26,11 @@ export default function CartScreen() {
             >
                 Clear Cart
             </CustomButton>
-            <CustomButton>
+            <CustomButton
+                onClick={()=>{
+                    history.push(`${NAVLINKS.Cart}/order`)
+                }}
+            >
                 Add Order
             </CustomButton>
             </CenterPaper>
