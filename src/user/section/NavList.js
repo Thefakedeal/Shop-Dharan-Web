@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { capitalizeEachWord } from "../helperFunctions/capitalize";
 import { ListItem, ListItemText, Drawer, ListItemIcon } from "@material-ui/core";
-import {Home, Search, ShoppingCart, MenuBook, Person, DoubleArrow} from '@material-ui/icons'
+import {Home, Search, ShoppingCart, MenuBook, Person, DoubleArrow, Business} from '@material-ui/icons'
 import navlinks from "../defaults/navlinks.json";
 
 function ListIcon({title}){
@@ -13,6 +13,8 @@ function ListIcon({title}){
             return <Search />
         case navlinks.Cart:
             return <ShoppingCart />
+        case navlinks.Address:
+          return <Business />
         case navlinks.Orders:
             return <MenuBook />
         case navlinks.User:

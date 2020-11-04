@@ -2,6 +2,7 @@
     "Home": "/home",
     "Search": "/search",
     "Cart": "/cart",
+    "Address": "/address",
     "Orders":"/orders",
     "User": "/user"
 }

@@ -11,6 +11,8 @@ export default function CustomText({
   value,
   onChange,
   required,
+  multiline,
+  rowsMax,
   ...props
 }) {
   const styles = useStyles();
@@ -22,6 +24,8 @@ export default function CustomText({
       type={type}
       className={styles.input}
       value={value}
+      multiline={multiline}
+      rowsMax={rowsMax}
       onChange={onChange}
       required={required}
       {...props}
