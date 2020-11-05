@@ -17,7 +17,8 @@ import SuppliersScreen from "../screens/SuppliersScreen";
 import SupplierScreen from "../screens/SupplierScreen";
 import OrdersScreen from "../screens/OrdersScreen";
 import OrderScreen from "../screens/OrderScreen";
-import ProductScreen from '../screens/ProductScreen'
+import ProductScreen from "../screens/ProductScreen";
+import ChangePasswordScreen from "../screens/ChangePasswordScreen";
 
 export default function Main() {
   return (
@@ -33,6 +34,11 @@ export default function Main() {
           exact
           path={`/admin/catagories/:id`}
           component={CatagoryScreen}
+        />
+        <Route
+          exact
+          path={`/admin/changepassword`}
+          component={ChangePasswordScreen}
         />
         <Route exact path={`/admin/suppliers/`} component={SuppliersScreen} />
         <Route exact path={`/admin/suppliers/:id`} component={SupplierScreen} />

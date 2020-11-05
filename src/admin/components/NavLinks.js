@@ -1,6 +1,8 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {makeStyles, Container} from '@material-ui/core'
+import Logout from './Logout'
+
 
 const useStyles = makeStyles({
     links:{
@@ -22,6 +24,7 @@ const useStyles = makeStyles({
 
 export default function NavLinks() {
     const styles  = useStyles()
+
     return (
         <Container className={styles.container}>
             <Link to='/admin/employees' className={styles.links}> Employees</Link>
@@ -29,7 +32,8 @@ export default function NavLinks() {
             <Link to='/admin/catagories' className={styles.links}> Catagories</Link>
             <Link to='/admin/suppliers' className={styles.links}> Suppliers</Link>
             <Link to='/admin/orders' className={styles.links}> Orders</Link>
-            
+            <Link to='/admin/changepassword' className={styles.links}> Change Password</Link>
+            <Logout className={styles.links}/>
         </Container>
     )
 }
