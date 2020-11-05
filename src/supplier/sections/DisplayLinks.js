@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { makeStyles, Container } from "@material-ui/core";
 import NavLinks from "../defaults/navlinks.json";
+import Logout from "../components/Logout";
 
 const useStyles = makeStyles({
   links: {
@@ -33,6 +34,7 @@ export default function DisplayLinks() {
           {label}
         </Link>
       ))}
+      <Logout className={styles.links}/>
     </Container>
   );
 }
