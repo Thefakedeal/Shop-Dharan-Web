@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import HeadingText from "../components/HeadingText";
 import CustomButton from "../components/CustomButton";
 import deleteAddress from "../helperFunctions/deleteAddress";
+import Address from "./Address";
 
 const useStyles = makeStyles({
   container: {
@@ -18,12 +18,7 @@ export default function DisplayAddress({ address, onDelete }) {
   const style = useStyles();
   return (
     <div className={style.container}>
-      <HeadingText>
-        {`${address.street_name}, ${address.city_name}`}
-      </HeadingText>
-      {address.details && (
-        <text style={{ textAlign: "center" }}>{address.details}</text>
-      )}
+      <Address address={address}/>
       <CustomButton
         variant="text"
         onClick={async () => {
