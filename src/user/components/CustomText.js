@@ -10,6 +10,7 @@ export default function CustomText({
   type,
   value,
   onChange,
+  onBlur,
   required,
   multiline,
   rowsMax,
@@ -27,6 +28,7 @@ export default function CustomText({
       multiline={multiline}
       rowsMax={rowsMax}
       onChange={onChange}
+      onBlur={onBlur}
       required={required}
       {...props}
     />
