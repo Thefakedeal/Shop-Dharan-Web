@@ -30,7 +30,7 @@ export default function ChangePasswordForm() {
                     const errors = {}
                     if (!validatePassword(data.newpassword)) errors.newpassword = "Invalid Password"
                     if (data.newpassword.length === 0) errors.newpassword = "Password Cant be Empty"
-                    if (data.renewpassword !== data.newpassword) errors.newpassword = "Passwords Donot Match"
+                    if (data.renewpassword !== data.newpassword) errors.renewpassword = "Passwords Donot Match"
                     return errors
                 }
             }
