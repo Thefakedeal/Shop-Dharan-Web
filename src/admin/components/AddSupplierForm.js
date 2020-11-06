@@ -9,6 +9,7 @@ import CustomSelect from "./CustomSelect";
 import CustomSwitch from "./CustomSwitch";
 import DisplayLoading from './DisplayLoading'
 import AddImage from '../components/AddImage'
+import DisplayErrors from "./DisplayErrors";
 
 const useStyles = makeStyles({
   button: { margin: "1rem", width: "80vmin" },
@@ -45,7 +46,7 @@ export default function SupplierForm() {
   } = useFetchCities();
 
   if (citiesloading || catagoryloading) return <DisplayLoading loading={true}/>
-
+  if(citiesserr || catagorieserr) return <DisplayErrors errors={[citiesserr,catagorieserr]}/>
   return (
     <>
       <CustomSwitch
