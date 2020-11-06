@@ -1,33 +1,13 @@
 import React from "react";
-import CustomText from "../components/CustomText";
+import HeadingText from "../components/HeadingText";
 
 export default function DisplayAddress({ address }) {
   return (
     <>
-      <h3> Address </h3>
-      <CustomText
-        defaultValue={address.city_name}
-        label="City"
-        InputProps={{
-          readOnly: true,
-        }}
-      />
-      <CustomText
-        defaultValue={address.street_name}
-        label="Street"
-        InputProps={{
-          readOnly: true,
-        }}
-      />
-      <CustomText
-        defaultValue={address.details}
-        label="Details"
-        multiline
-        rowsMax={4}
-        InputProps={{
-          readOnly: true,
-        }}
-      />
+      <h3> Address: {`${address.street_name}, ${address.city_name}`} </h3>
+      {address.details && (
+        <text style={{ textAlign: "center" }}>Details: {address.details}</text>
+      )}
     </>
   );
 }

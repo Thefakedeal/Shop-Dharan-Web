@@ -78,9 +78,24 @@ export default function OrdersTable({ ordered_items = [] }) {
               </TableCell>
             </TableRow>
           ))}
-          
+           <TableRow key={"Total"}>
+            <TableCell align="center"> </TableCell>
+            <TableCell component="th" scope="row" align="center">
+              {" "}
+              Total{" "}
+            </TableCell>
+            <TableCell align="center"> </TableCell>
+            <TableCell align="center"> </TableCell>
+            <TableCell align="center">
+              {ordered_items.reduce((total, ordered_item) => {
+                return parseInt(total) + parseInt(ordered_item.price * ordered_item.quantity);
+              }, 0)}
+            </TableCell>
+          </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
   );
 }
+
+

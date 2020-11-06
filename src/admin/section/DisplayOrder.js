@@ -1,5 +1,5 @@
 import React from "react";
-import {useHistory } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 import DisplayLoading from "../components/DisplayLoading";
 import DisplayErrors from "../components/DisplayErrors";
@@ -10,11 +10,9 @@ import useFetchOrder from "../hooks/useFetchOrder";
 import OrderedItemsTable from "../tables/OrderedItemsTable";
 import DisplayUserInfo from "./DisplayUserInfo";
 import DisplayAddress from "./DisplayAddress";
-import fetchWithCredentials from '../helperFunctions/fetchWithCredentials'
+import fetchWithCredentials from "../helperFunctions/fetchWithCredentials";
 import CustomButton from "../components/CustomButton";
-
-
-
+import DisplayCost from "./DisplayCost";
 
 function ReturnDateTime(dateString) {
   function addZero(i) {
@@ -22,10 +20,10 @@ function ReturnDateTime(dateString) {
     return `${i}`;
   }
   const date = new Date(dateString);
-  let hourTime = date.getHours()
-  const ampm = hourTime<12?'AM':'PM';
-  hourTime = hourTime %12;
-  hourTime += hourTime===0?12:0;
+  let hourTime = date.getHours();
+  const ampm = hourTime < 12 ? "AM" : "PM";
+  hourTime = hourTime % 12;
+  hourTime += hourTime === 0 ? 12 : 0;
   const month = addZero(date.getMonth() + 1);
   const day = addZero(date.getDate());
   const hour = addZero(hourTime);
@@ -47,19 +45,19 @@ function GetTotal(ordered_items = []) {
 
 export default function DisplayOrder({ order_id }) {
   const { err, loading, result } = useFetchOrder({ order_id });
-  const history = useHistory()
+  const history = useHistory();
 
-  async function DeleteOrder({order_id}){
-    const sure = window.confirm("Are You Sure You Want To Delete Order?")
-    if(!sure) return;
-    const url = '/api/admin/orders/delete'
-    const method = "DELETE"
-    const request = await fetchWithCredentials(method, url, {order_id})
-    if(request.ok){
-      alert('Order Deleted')
-      return history.goBack()
-    } 
-    alert('Failed To Delete')
+  async function DeleteOrder({ order_id }) {
+    const sure = window.confirm("Are You Sure You Want To Delete Order?");
+    if (!sure) return;
+    const url = "/api/admin/orders/delete";
+    const method = "DELETE";
+    const request = await fetchWithCredentials(method, url, { order_id });
+    if (request.ok) {
+      alert("Order Deleted");
+      return history.goBack();
+    }
+    alert("Failed To Delete");
   }
 
   if (loading) return <DisplayLoading loading={loading} />;
@@ -71,9 +69,11 @@ export default function DisplayOrder({ order_id }) {
         order_status={result.order.order_status}
         order_id={result.order.order_id}
       />
-      <CustomButton onClick={()=>{
-        DeleteOrder({order_id: result.order.order_id})
-      }}>
+      <CustomButton
+        onClick={() => {
+          DeleteOrder({ order_id: result.order.order_id });
+        }}
+      >
         Delete Order
       </CustomButton>
       <DisplayUserInfo user={result.user} />
@@ -82,7 +82,11 @@ export default function DisplayOrder({ order_id }) {
         label="Ordered Time"
       />
       <OrderedItemsTable ordered_items={result.ordered_items} />
-      <CustomText value={GetTotal(result.ordered_items)} label="Total" />
+      <DisplayCost
+        total={GetTotal(result.ordered_items) + parseInt(result.deliveryCharge)}
+        deliveryCharge= {result.deliveryCharge}
+        numOFSuppliers={result.numOfSuppliers}
+      />
       <DisplayAddress address={result.address} />
     </>
   );
