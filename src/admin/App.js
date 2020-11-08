@@ -1,6 +1,6 @@
 import React from "react";
 
-import LoginScreen from "./screens/LoginScreen";
+import AuthScreen from './screens/AuthScreen'
 import LoadingScreen from "./screens/LoadingScreen";
 import Main from './navigation/Main'
 import { LoginInfo,useLoading, useIsLoggedIn, useRole } from "./contexts/LoginInfo";
@@ -11,7 +11,7 @@ function Wrapper(){
   const isLoggedIn =  useIsLoggedIn();
   const role = useRole();
   if(loading) return <LoadingScreen />;
-  if(!(isLoggedIn && (role===ROLES.ADMIN || role === ROLES.EMPLOYEE)) ) return <LoginScreen />;
+  if(!(isLoggedIn && (role===ROLES.ADMIN || role === ROLES.EMPLOYEE)) ) return <AuthScreen />;
   return <Main />
 }
 

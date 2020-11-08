@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Paper, makeStyles } from "@material-ui/core";
+import {useHistory} from 'react-router-dom'
 
 import {  useRefreshToken, useAccessToken } from "../contexts/LoginInfo";
 import LightScreen from "../components/LightScreen";
@@ -10,6 +11,8 @@ import CustomText from "../components/CustomText";
 import CustomButton from "../components/CustomButton";
 import DisplayLoading from '../components/DisplayLoading'
 import DisplayErrors from '../components/DisplayErrors'
+import authlinks from '../defaults/authlinks.json'
+import RedText from '../components/RedText'
 
 const useStyles = makeStyles({
   container: {
@@ -43,6 +46,7 @@ async function fetchTokens(username, password) {
 
 export default function LoginScreen() {
   const styles = useStyles();
+  const history = useHistory()
  
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -102,6 +106,13 @@ export default function LoginScreen() {
         >
           Login
         </CustomButton>
+        <RedText
+          onClick={()=>{
+            history.push(authlinks.RequestPin)
+          }}
+        >
+          Forgot Password?
+        </RedText>
       </Paper>
     </LightScreen>
   );
