@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {useHistory} from 'react-router-dom'
 import { Formik, Field} from "formik";
 import {useRefreshToken, useAccessToken} from '../contexts/LoginInfo'
 
@@ -7,6 +8,8 @@ import Errors from '../components/Errors'
 import CustomText from "../components/CustomText";
 import CenterPaper from "../components/CenterPaper";
 import CustomButton from '../components/CustomButton';
+import authnav from '../defaults/authlinks.json'
+import RedText from '../components/RedText'
 
 async function fetchTokens(data) {
   const response = await fetch("/api/supplier/login", {
@@ -28,6 +31,7 @@ export default function LoginForm() {
   const [err, setErr] = useState('')
   const {setRefreshToken} = useRefreshToken()
   const {setAccessToken} = useAccessToken()
+  const history = useHistory()
   return (
     <CenterPaper>
       <Formik
@@ -66,6 +70,13 @@ export default function LoginForm() {
             <CustomButton type="submit" onClick={handleSubmit}>
                 Login
             </CustomButton>
+            <RedText
+              onClick={()=>{
+                history.push(authnav.RequestPin)
+              }}
+            >
+              Forgot Password?
+            </RedText>
             </>
         )}
       </Formik>
