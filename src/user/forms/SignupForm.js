@@ -6,6 +6,7 @@ import {
   useAccessToken,
 } from "../contexts/LoginInfo";
 
+import authlinks from '../defaults/authlinks.json'
 import RedText from "../components/RedText";
 import Loading from "../components/Loading";
 import Errors from "../components/Errors";
@@ -130,7 +131,7 @@ export default function LoginForm() {
 
             <RedText
               onClick={() => {
-                history.push("/");
+                history.push(authlinks.Login);
               }}
             >
               Already A User?

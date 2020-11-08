@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {useHistory} from 'react-router-dom'
 import { Formik, Field} from "formik";
 import {useRefreshToken, useAccessToken, useContinueWithoutLogin} from '../contexts/LoginInfo'
-
+import authlinks from '../defaults/authlinks.json'
 import RedText from '../components/RedText'
 import Loading from '../components/Loading'
 import Errors from '../components/Errors'
@@ -75,7 +75,7 @@ export default function LoginForm() {
             }}> Continue Without Login </RedText>
 
             <RedText onClick={()=>{
-                history.push('/signup')
+                history.push(authlinks.SignUp)
             }}> Not A User? </RedText>
             </>
         )}

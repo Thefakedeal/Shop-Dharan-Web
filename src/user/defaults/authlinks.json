@@ -1,0 +1,6 @@
+{
+    "Login": "/",
+    "SignUp": "/signup",
+    "RequestPin": "/requestpin",
+    "ResetPassword": "/resetpassword"
+}
