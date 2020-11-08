@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 
 export default function Logo({ variant = "white", ...props }) {
   const styles = useStyles();
-  const logo = variant.toLowerCase() == "white" ? logoWhite : logoRed;
+  const logo = variant.toLowerCase() === "white" ? logoWhite : logoRed;
 
   return (
     <img

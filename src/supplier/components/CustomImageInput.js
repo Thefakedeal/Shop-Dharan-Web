@@ -37,7 +37,7 @@ export default function CustomImageInput({ url, setFile }) {
   };
   return (
     <Paper className={styles.container}>
-      <img src={display||placeholder} className={styles.image}/>
+      <img src={display||placeholder} className={styles.image} alt="Your Uploaded File"/>
 
       <div className={styles.buttons}>
         {display && (

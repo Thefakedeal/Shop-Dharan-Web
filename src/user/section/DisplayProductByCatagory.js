@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import { useSettings } from "../contexts/Settings";
 import useFetchSuppliers from "../hooks/useFetchSuppliers";
 import SupplierCard from "../components/SupplierCard";
 import Loading from "../components/Loading";

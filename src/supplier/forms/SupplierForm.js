@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Formik, Field, withFormik } from "formik";
+import { Formik, Field } from "formik";
 
 import CitySelect from "../components/CitySelect";
 import CatagorySelect from "../components/CatagorySelect";

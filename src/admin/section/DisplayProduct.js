@@ -17,6 +17,7 @@ export default function DisplayProduct({ product_id }) {
       <img
         src={`/images/${result.image_id}`}
         style={{ height: 200, width: 300, objectFit: "contain" }}
+        alt={result.product_name}
       />
       <div>
         <h3>Available: {result.available ? "Yes" : "No"} </h3>

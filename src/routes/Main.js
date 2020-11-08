@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import LoadingScreen from "../components/LoadingScreen";
 import Admin from './Admin'
 import Supplier from './Supplier'
 import User from './User'

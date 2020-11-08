@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React from "react";
 import { makeStyles, Paper } from "@material-ui/core";
 
 import {
@@ -9,7 +9,6 @@ import {
   useFile
 } from "../contexts/AddSupplierInfo";
 
-import fetchWithCredentials from "../helperFunctions/fetchWithCredentials";
 import uploadFilesWithCredentials from '../helperFunctions/uploadFilesWithCredentials'
 import {
   validateEmail,

@@ -19,7 +19,7 @@ export default async function fetchWithCredentials(method = "POST", url, body) {
     },
     
   };
-  if(body && method != 'GET'){
+  if(body && method !== 'GET'){
    options = {...options, body: JSON.stringify(body),} 
   }
   

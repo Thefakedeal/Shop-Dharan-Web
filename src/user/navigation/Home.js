@@ -15,7 +15,6 @@ import AddressScreen from "../screens/AddressScreen";
 import AddAddressScreen from "../screens/AddAddressScreen";
 import OrdersScreen from "../screens/OrdersScreen";
 import OrderScreen from "../screens/OrderScreen";
-import UserList from "../screens/UserScreen";
 import UserScreen from "../screens/UserScreen";
 import ChangePasswordScreen from "../screens/ChangePasswordScreen";
 

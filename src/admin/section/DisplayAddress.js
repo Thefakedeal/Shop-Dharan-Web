@@ -1,5 +1,5 @@
 import React from "react";
-import HeadingText from "../components/HeadingText";
+
 
 export default function DisplayAddress({ address }) {
   return (

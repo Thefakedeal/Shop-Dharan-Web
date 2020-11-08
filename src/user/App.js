@@ -12,7 +12,7 @@ import { Settings } from "./contexts/Settings";
 import ROLES from "../defaults/roles.json";
 import LoginScreen from "./screens/LoginScreen";
 import Main from "./navigation/Main";
-import { Card } from "@material-ui/core";
+
 
 function Wrapper() {
   const loading = useLoading();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Loading from "./Loading";
 import Errors from "./Errors";
 import useFetchCatagories from "../hooks/useFetchCatagories";
