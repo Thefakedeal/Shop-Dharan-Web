@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { Formik, Field } from "formik";
-
+import { validateEmail } from "../validations";
 import RedText from "../components/RedText";
 import Loading from "../components/Loading";
 import Errors from "../components/Errors";
@@ -31,6 +31,11 @@ export default function RequestPinForm() {
     <CenterPaper>
       <Formik
         initialValues={{ email_id: "" }}
+        validate={(data) => {
+          const errors = {};
+          if (!validateEmail(data.email_id)) errors.email_id = "Invalid Email";
+          return errors;
+        }}
         onSubmit={async (data, { setSubmitting }) => {
           try {
             setSubmitting(true);
@@ -46,7 +51,7 @@ export default function RequestPinForm() {
           }
         }}
       >
-        {({ isSubmitting, handleSubmit }) => (
+        {({ isSubmitting, handleSubmit,errors }) => (
           <>
             <Loading loading={isSubmitting} />
             <Errors errors={[err]} />
@@ -54,6 +59,8 @@ export default function RequestPinForm() {
               name="email_id"
               type="text"
               label="Email"
+              error={errors.email_id ? true : false}
+              helperText={errors.email_id}
               required
               as={CustomText}
             />
