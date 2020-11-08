@@ -1,14 +1,18 @@
-import React, {useState} from "react";
-import {useHistory} from 'react-router-dom'
-import { Formik, Field} from "formik";
-import {useRefreshToken, useAccessToken, useContinueWithoutLogin} from '../contexts/LoginInfo'
-import authlinks from '../defaults/authlinks.json'
-import RedText from '../components/RedText'
-import Loading from '../components/Loading'
-import Errors from '../components/Errors'
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { Formik, Field } from "formik";
+import {
+  useRefreshToken,
+  useAccessToken,
+  useContinueWithoutLogin,
+} from "../contexts/LoginInfo";
+import authlinks from "../defaults/authlinks.json";
+import RedText from "../components/RedText";
+import Loading from "../components/Loading";
+import Errors from "../components/Errors";
 import CustomText from "../components/CustomText";
 import CenterPaper from "../components/CenterPaper";
-import CustomButton from '../components/CustomButton';
+import CustomButton from "../components/CustomButton";
 
 async function fetchTokens(data) {
   const response = await fetch("/api/user/login", {
@@ -25,35 +29,34 @@ async function fetchTokens(data) {
   return await response.json();
 }
 
-
 export default function LoginForm() {
-  const history = useHistory()
-  const [err, setErr] = useState('')
-  const {setRefreshToken} = useRefreshToken()
-  const {setAccessToken} = useAccessToken()
-  const {setContinueWithoutLogin} = useContinueWithoutLogin()
+  const history = useHistory();
+  const [err, setErr] = useState("");
+  const { setRefreshToken } = useRefreshToken();
+  const { setAccessToken } = useAccessToken();
+  const { setContinueWithoutLogin } = useContinueWithoutLogin();
   return (
     <CenterPaper>
       <Formik
         initialValues={{ email_id: "", password: "" }}
         onSubmit={async (data, { setSubmitting }) => {
-          try{
-            setSubmitting(true)
-            const { accessToken, refreshToken }= await fetchTokens(data)
-            setAccessToken(accessToken)
-            setRefreshToken(refreshToken)
-          }catch(err){
-            setErr(err)
-          }finally{
-            setSubmitting(false)
+          try {
+            setSubmitting(true);
+            const { accessToken, refreshToken } = await fetchTokens(data);
+            setAccessToken(accessToken);
+            setRefreshToken(refreshToken);
+          } catch (err) {
+            setErr(err);
+          } finally {
+            setSubmitting(false);
           }
         }}
       >
-        {({ isSubmitting, handleSubmit}) => (
-           <> 
-           <Loading loading={isSubmitting}/>
-           <Errors errors={[err]}/>
-           <Field
+        {({ isSubmitting, handleSubmit }) => (
+          <>
+            <Loading loading={isSubmitting} />
+            <Errors errors={[err]} />
+            <Field
               name="email_id"
               type="text"
               label="Email"
@@ -68,16 +71,33 @@ export default function LoginForm() {
               as={CustomText}
             />
             <CustomButton type="submit" onClick={handleSubmit}>
-                Login
+              Login
             </CustomButton>
-            <RedText onClick={()=>{
-                setContinueWithoutLogin(true)
-            }}> Continue Without Login </RedText>
+            <RedText
+              onClick={() => {
+                setContinueWithoutLogin(true);
+              }}
+            >
+              {" "}
+              Continue Without Login{" "}
+            </RedText>
 
-            <RedText onClick={()=>{
-                history.push(authlinks.SignUp)
-            }}> Not A User? </RedText>
-            </>
+            <RedText
+              onClick={() => {
+                history.push(authlinks.RequestPin);
+              }}
+            >
+              Forgot Password?
+            </RedText>
+            <RedText
+              onClick={() => {
+                history.push(authlinks.SignUp);
+              }}
+            >
+              {" "}
+              Not A User?{" "}
+            </RedText>
+          </>
         )}
       </Formik>
     </CenterPaper>
