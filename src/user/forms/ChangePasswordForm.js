@@ -61,7 +61,7 @@ export default function ChangePasswordForm() {
                         <CustomText
                             label={"Old Password"}
                             value={values.oldpassword}
-                            secureTextEntry={true}
+                            type="password"
                             error={errors.oldpassword ? true : false}
                             helperText={errors.oldpassword}
                             onChange={handleChange("oldpassword")}
