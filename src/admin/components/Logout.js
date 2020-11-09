@@ -1,9 +1,10 @@
 import React from "react";
 import logout from "../helperFunctions/logout";
-import { useRefreshToken } from "../contexts/LoginInfo";
+import { useRefreshToken, useAccessToken } from "../contexts/LoginInfo";
 
 export default function Logout({ className }) {
   const { refreshToken, setRefreshToken } = useRefreshToken();
+  const {setAccessToken} = useAccessToken()
   return (
     <text
       className={className}
@@ -14,6 +15,7 @@ export default function Logout({ className }) {
           const success = await logout(refreshToken);
           if (!success) return alert("Failed To Logout");
           setRefreshToken('')
+          setAccessToken('')
         } catch (err) {
           alert(err);
         }

@@ -1,11 +1,11 @@
 import React from "react";
 import logout from '../helperFunctions/logout'
 import CustomButtom from "../components/CustomButton";
-import { useRefreshToken } from "../contexts/LoginInfo";
+import { useRefreshToken, useAccessToken } from "../contexts/LoginInfo";
 
 export default function DisplayLogout() {
   const { refreshToken, setRefreshToken } = useRefreshToken();
-
+  const {setAccessToken} = useAccessToken()
   const logoutStart = async () => {
     try {
       const confirm = window.confirm("Are You Sure?")
@@ -13,7 +13,7 @@ export default function DisplayLogout() {
       const loggedout = await logout(refreshToken);
       if (loggedout) {
         setRefreshToken("");
-        alert("Logged Out!!!")
+        setAccessToken('')
         return;
       }
       alert("Failed To LogOut")
